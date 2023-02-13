@@ -2,6 +2,9 @@
 
 desenvolvido por [Alisson Vinicius](https://github.com/alisson2014)
 
+<p align="center">
+  <img alt="Status" src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge">
+</p>
 #### Projeto desenvolvido com React
 
 ### Tecnologias
