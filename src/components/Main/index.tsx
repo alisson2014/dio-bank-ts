@@ -1,7 +1,16 @@
+import { useState, useEffect } from "react"
 import { Button } from "@chakra-ui/react"
 import { login } from "../../services/log/login"
 import styled from "styled-components"
-import { InputField } from "../InputField"
+import { Email } from "../Email"
+import { Password } from "../Password"
+import { api } from "../../api"
+
+interface IUserData {
+  name: string
+  email: string
+  password: string
+}
 
 const Card = styled.div`
   padding: 10px 25px;
@@ -21,12 +30,30 @@ const Tittle = styled.h1`
 `
 
 export const Main = () => {
+  const [email, setEmail] = useState<string>("")
+  const [userData, setUserData] = useState<null | IUserData>()
+
+  useEffect(() => {
+    const getData = async () => {
+      const data: any | IUserData = await api
+      setUserData(data)
+    }
+
+    getData()
+  })
+
   return (
     <Card>
       <Tittle>Faça o login</Tittle>
-      <InputField name="Email" type="email" placeHolder="Digite seu email" />
-      <InputField name="Senha" type="password" placeHolder="Digite sua senha" />
-      <Button onClick={login} size="md" colorScheme="teal">
+      <p>{userData?.name}</p>
+      <Email value={email} onChange={(event) => setEmail(event.target.value)} />
+      <Password />
+      <Button
+        onClick={() => login(email)}
+        size="md"
+        colorScheme="teal"
+        width="100%"
+      >
         Entrar
       </Button>
     </Card>
