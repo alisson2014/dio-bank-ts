@@ -5,7 +5,7 @@ interface IEmail {
   onChange: (event: any) => void
 }
 
-export const Email = ({ value, onChange }: IEmail) => {
+const Email = ({ value, onChange }: IEmail) => {
   return (
     <Box width="100%" display="flex" flexDirection="column" gap="4px">
       <h2>Email</h2>
@@ -19,3 +19,5 @@ export const Email = ({ value, onChange }: IEmail) => {
     </Box>
   )
 }
+
+export default Email

@@ -2,8 +2,8 @@ import { useState } from "react"
 import { Button } from "@chakra-ui/react"
 import { login } from "../../services/log/login"
 import styled from "styled-components"
-import { Email } from "../Email"
-import { Password } from "../Password"
+import Email from "../Email"
+import Password from "../Password"
 
 const Card = styled.div`
   padding: 10px 25px;
@@ -22,7 +22,7 @@ const Tittle = styled.h1`
   font-weight: bolder;
 `
 
-export const Login = () => {
+const Login = () => {
   const [email, setEmail] = useState<string>("")
 
   return (
@@ -41,3 +41,5 @@ export const Login = () => {
     </Card>
   )
 }
+
+export default Login

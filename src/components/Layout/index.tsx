@@ -1,8 +1,8 @@
 import { Box, Container } from "@chakra-ui/react"
-import { Footer } from "../Footer"
-import { Header } from "../Header"
+import Footer from "../Footer"
+import Header from "../Header"
 
-export const Layout = ({ children }: any) => {
+const Layout = ({ children }: any) => {
   return (
     <Box
       fontFamily="monospace"
@@ -20,3 +20,5 @@ export const Layout = ({ children }: any) => {
     </Box>
   )
 }
+
+export default Layout

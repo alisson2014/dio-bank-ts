@@ -13,3 +13,5 @@ export const Password = () => {
     </Box>
   )
 }
+
+export default Password
