@@ -1,8 +1,9 @@
 import { useNavigate, useParams } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { Center, SimpleGrid, Spinner } from "@chakra-ui/react"
 import CardInfo from "../../components/CardInfo"
 import { api } from "../../api"
+import { AppContext } from "../../components"
 
 interface IUserData {
   name: string
@@ -14,6 +15,11 @@ interface IUserData {
 
 const Account = () => {
   const [userData, setUserData] = useState<null | IUserData>()
+  const { id } = useParams()
+  const { isLoggedIn } = useContext(AppContext)
+  const navigate = useNavigate()
+
+  !isLoggedIn && navigate("/")
 
   useEffect(() => {
     const getData = async () => {
@@ -25,9 +31,6 @@ const Account = () => {
   }, [])
 
   const actualDate = new Date()
-  const { id } = useParams()
-  const navigate = useNavigate()
-
   if (userData && id !== userData?.id) {
     navigate("/")
   }
