@@ -3,7 +3,7 @@ import { useState, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import { AppContext, Email, Login, Password } from "../../components"
-import { login } from "../../services"
+import { changeLocalStorage, login } from "../../services"
 
 export const Tittle = styled.h1`
   font-size: 20px;
@@ -23,6 +23,7 @@ const HomePage = () => {
     }
 
     setIsLoggedIn(true)
+    changeLocalStorage({ login: true })
     navigate("/account/1")
   }
 

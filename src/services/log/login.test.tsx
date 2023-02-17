@@ -1,4 +1,4 @@
-import { login } from "./index.tsx"
+import { login } from "."
 
 describe("Login", () => {
   const mockEmail = "alm20@gmail.com"

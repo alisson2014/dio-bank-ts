@@ -1,3 +1,8 @@
-import { login } from "./log/index.tsx"
+import { login } from "./log"
+import {
+  createLocalStorage,
+  changeLocalStorage,
+  getAllLocalStorage,
+} from "./storage"
 
-export { login }
+export { login, createLocalStorage, changeLocalStorage, getAllLocalStorage }
