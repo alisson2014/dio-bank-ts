@@ -1,10 +1,27 @@
-import { Center } from "@chakra-ui/react"
+import { Button, Center, Flex, Spacer } from "@chakra-ui/react"
+import { useContext } from "react"
+import { useNavigate } from "react-router-dom"
+import { AppContext } from "../AppContext"
 
 const Header = () => {
+  const navigate = useNavigate()
+  const { isLoggedIn, setIsLoggedIn } = useContext(AppContext)
+
+  const logout = () => {
+    setIsLoggedIn(false)
+    navigate("/")
+  }
+
   return (
-    <Center fontSize="26px" fontWeight="bold">
-      <header>Dio Bank</header>
-    </Center>
+    <Flex fontSize="26px" fontWeight="bold">
+      <Center>Dio Bank</Center>
+      {isLoggedIn && (
+        <>
+          <Spacer />
+          <Button onClick={() => logout()}>Sair</Button>
+        </>
+      )}
+    </Flex>
   )
 }
 
