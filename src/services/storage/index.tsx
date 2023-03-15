@@ -2,7 +2,7 @@ interface IDioBank {
   login: boolean
 }
 
-const dioBank = {
+const dioBank: IDioBank = {
   login: false,
 }
 

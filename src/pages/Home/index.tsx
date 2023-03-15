@@ -12,11 +12,12 @@ export const Tittle = styled.h1`
 
 const HomePage = () => {
   const [email, setEmail] = useState<string>("")
+  const [password, setPassword] = useState<string>("");
   const { setIsLoggedIn } = useContext(AppContext)
   const navigate = useNavigate()
 
-  const validateLogin = async (email: string) => {
-    const loggedIn = await login(email)
+  const validateLogin = async (email: string, password: string) => {
+    const loggedIn = await login(email, password)
 
     if (!loggedIn) {
       return alert("Email inválido!")
@@ -31,9 +32,9 @@ const HomePage = () => {
     <Login>
       <Tittle>Faça o login</Tittle>
       <Email value={email} onChange={(event) => setEmail(event.target.value)} />
-      <Password />
+      <Password value={password} onChange={(event) => setPassword(event.target.value)} />
       <Button
-        onClick={() => validateLogin(email)}
+        onClick={() => validateLogin(email, password)}
         size="md"
         colorScheme="teal"
         width="100%"
